@@ -19,7 +19,14 @@
     cursor:none; user-select:none;
   }
   .field{ position:relative; width:92vw; }
-  .grid{ font-size:16px; line-height:1.26; white-space:pre; transform-origin:0 0; }
+  .grid{
+    position:absolute; top:0; left:0;
+    font-size:16px; line-height:1.26; white-space:pre; transform-origin:0 0;
+    transition:opacity 900ms ease;
+  }
+  .grid.whole{ opacity:0; }
+  body.entire .live{ opacity:0; }
+  body.entire .whole{ opacity:1; }
   .w{ opacity:0; animation-iteration-count:infinite; animation-timing-function:linear; will-change:opacity; }
   @keyframes b1{0%{opacity:0}7.0%{opacity:1}17.0%{opacity:1}24.0%{opacity:0}100%{opacity:0}}
   @keyframes b2{0%{opacity:0}7.0%{opacity:1}27.0%{opacity:1}34.0%{opacity:0}100%{opacity:0}}
@@ -59,8 +66,16 @@
     max-width:46em; font-size:clamp(13px, 1.05vw, 19px); line-height:1.95;
   }
   .statement .by{ margin-top:2.2em; color:var(--faint); }
-  .shut{
+  .all{
     position:fixed; right:4vw; bottom:4vh;
+    font-size:11px; letter-spacing:.34em; color:var(--faint);
+    background:none; border:0; font-family:inherit; cursor:inherit;
+  }
+  .all:hover, .all:focus-visible{ color:var(--ink); outline:none; }
+  body.entire .all{ color:var(--ink); }
+
+  .shut{
+    position:fixed; right:4vw; top:4vh;
     font-size:11px; letter-spacing:.34em; color:var(--faint);
     background:none; border:0; font-family:inherit; cursor:inherit;
   }
@@ -76,7 +91,8 @@
 </style>
 </head>
 <body>
-<div class="field"><pre class="grid" id="grid">
+<div class="field">
+  <pre class="grid live" id="grid">
                                                                                                                         <span class="w b4" style="animation-duration:58.3s;animation-delay:-40.2s">lake</span>
                                                                                                                     <span class="w b2" style="animation-duration:47.9s;animation-delay:-11.4s">ontario</span> <span class="w b4" style="animation-duration:24.5s;animation-delay:-0.1s">lake</span>
                                                                          <span class="w b2" style="animation-duration:79.9s;animation-delay:-1.7s">ontario</span> <span class="w b6" style="animation-duration:39.1s;animation-delay:-20.0s">a</span> <span class="w b4" style="animation-duration:36.6s;animation-delay:-26.9s">lake</span>                       <span class="w b4" style="animation-duration:67.5s;animation-delay:-25.8s">to</span>  <span class="w b2" style="animation-duration:75.7s;animation-delay:-19.7s">tell</span>  <span class="w b6" style="animation-duration:37.5s;animation-delay:-25.2s">it</span>  <span class="w b3" style="animation-duration:77.3s;animation-delay:-29.5s">not</span> <span class="w b4" style="animation-duration:36.8s;animation-delay:-11.1s">one</span>
@@ -96,7 +112,29 @@
      <span class="w b1" style="animation-duration:72.6s;animation-delay:-6.1s">era</span> <span class="w b3" style="animation-duration:24.6s;animation-delay:-20.4s">later</span> <span class="w b4" style="animation-duration:34.2s;animation-delay:-1.3s">an</span> <span class="w b2" style="animation-duration:59.1s;animation-delay:-21.0s">aeon</span> <span class="w b3" style="animation-duration:35.9s;animation-delay:-0.3s">later</span> <span class="w b4" style="animation-duration:27.4s;animation-delay:-26.2s">an</span> <span class="w b2" style="animation-duration:59.1s;animation-delay:-19.3s">ontario</span> <span class="w b3" style="animation-duration:75.8s;animation-delay:-24.0s">later</span> <span class="w b2" style="animation-duration:48.2s;animation-delay:-35.5s">nearer</span> <span class="w b2" style="animation-duration:40.4s;animation-delay:-19.4s">nearer</span> <span class="w b6" style="animation-duration:76.1s;animation-delay:-52.2s">a</span> <span class="w b1" style="animation-duration:26.8s;animation-delay:-2.9s">terrain</span> <span class="w b5" style="animation-duration:54.8s;animation-delay:-47.3s">no</span> <span class="w b4" style="animation-duration:66.0s;animation-delay:-34.9s">one</span> <span class="w b1" style="animation-duration:37.2s;animation-delay:-25.1s">enter</span> <span class="w b5" style="animation-duration:44.0s;animation-delay:-40.6s">no</span> <span class="w b4" style="animation-duration:56.3s;animation-delay:-46.9s">one</span> <span class="w b2" style="animation-duration:41.3s;animation-delay:-7.2s">alter</span> <span class="w b5" style="animation-duration:59.2s;animation-delay:-2.4s">i</span> <span class="w b2" style="animation-duration:24.8s;animation-delay:-16.1s">alter</span> <span class="w b5" style="animation-duration:37.8s;animation-delay:-16.2s">no</span> <span class="w b4" style="animation-duration:24.9s;animation-delay:-13.5s">letter</span> <span class="w b6" style="animation-duration:32.2s;animation-delay:-13.2s">it</span> <span class="w b2" style="animation-duration:55.9s;animation-delay:-2.2s">alter</span>
    <span class="w b3" style="animation-duration:48.9s;animation-delay:-41.8s">all</span> <span class="w b6" style="animation-duration:55.7s;animation-delay:-5.6s">a</span> <span class="w b1" style="animation-duration:81.1s;animation-delay:-60.7s">rattle</span> <span class="w b6" style="animation-duration:52.8s;animation-delay:-30.3s">a</span> <span class="w b1" style="animation-duration:75.3s;animation-delay:-23.8s">nettle</span> <span class="w b4" style="animation-duration:78.3s;animation-delay:-25.0s">at</span> <span class="w b4" style="animation-duration:67.3s;animation-delay:-63.6s">an</span> <span class="w b2" style="animation-duration:55.4s;animation-delay:-20.1s">inlet</span> <span class="w b6" style="animation-duration:76.9s;animation-delay:-19.1s">a</span> <span class="w b1" style="animation-duration:34.4s;animation-delay:-26.4s">talon</span> <span class="w b3" style="animation-duration:32.9s;animation-delay:-31.5s">on</span> <span class="w b6" style="animation-duration:40.3s;animation-delay:-18.7s">a</span> <span class="w b2" style="animation-duration:49.7s;animation-delay:-22.1s">tern</span> <span class="w b6" style="animation-duration:32.9s;animation-delay:-2.8s">a</span> <span class="w b1" style="animation-duration:59.5s;animation-delay:-32.4s">lilt</span> <span class="w b5" style="animation-duration:31.0s;animation-delay:-28.1s">in</span> <span class="w b6" style="animation-duration:24.8s;animation-delay:-19.6s">a</span> <span class="w b1" style="animation-duration:79.7s;animation-delay:-67.3s">tone</span> <span class="w b4" style="animation-duration:36.4s;animation-delay:-33.0s">letter</span> <span class="w b4" style="animation-duration:58.8s;animation-delay:-16.6s">to</span> <span class="w b4" style="animation-duration:29.6s;animation-delay:-26.8s">letter</span> <span class="w b3" style="animation-duration:57.3s;animation-delay:-1.4s">root</span> <span class="w b4" style="animation-duration:55.3s;animation-delay:-34.2s">to</span> <span class="w b3" style="animation-duration:48.5s;animation-delay:-24.5s">root</span> <span class="w b3" style="animation-duration:73.0s;animation-delay:-53.6s">rain</span> <span class="w b4" style="animation-duration:39.5s;animation-delay:-36.3s">to</span> <span class="w b3" style="animation-duration:39.9s;animation-delay:-13.5s">rain</span> <span class="w b4" style="animation-duration:34.3s;animation-delay:-15.7s">one</span>
  <span class="w b4" style="animation-duration:50.0s;animation-delay:-42.6s">to</span> <span class="w b4" style="animation-duration:50.1s;animation-delay:-41.4s">one</span> <span class="w b5" style="animation-duration:59.1s;animation-delay:-15.3s">no</span> <span class="w b1" style="animation-duration:29.2s;animation-delay:-6.1s">litter</span> <span class="w b5" style="animation-duration:63.0s;animation-delay:-12.9s">in</span> <span class="w b6" style="animation-duration:74.4s;animation-delay:-35.2s">it</span> <span class="w b5" style="animation-duration:39.0s;animation-delay:-31.0s">no</span> <span class="w b2" style="animation-duration:80.3s;animation-delay:-63.0s">error</span> <span class="w b5" style="animation-duration:27.3s;animation-delay:-25.3s">in</span> <span class="w b6" style="animation-duration:75.0s;animation-delay:-43.7s">it</span> <span class="w b3" style="animation-duration:60.6s;animation-delay:-54.0s">all</span>   <span class="w b2" style="animation-duration:81.9s;animation-delay:-53.6s">eaten</span>  <span class="w b3" style="animation-duration:50.5s;animation-delay:-41.2s">all</span>  <span class="w b3" style="animation-duration:52.9s;animation-delay:-49.5s">not</span>  <span class="w b2" style="animation-duration:25.7s;animation-delay:-14.6s">eaten</span>  <span class="w b5" style="animation-duration:63.1s;animation-delay:-55.8s">i</span>  <span class="w b2" style="animation-duration:60.9s;animation-delay:-51.1s">kneel</span>  <span class="w b4" style="animation-duration:80.1s;animation-delay:-6.9s">at</span>  <span class="w b6" style="animation-duration:64.5s;animation-delay:-19.0s">it</span>  <span class="w b5" style="animation-duration:77.2s;animation-delay:-20.3s">i</span>  <span class="w b2" style="animation-duration:61.3s;animation-delay:-34.5s">look</span>  <span class="w b4" style="animation-duration:74.5s;animation-delay:-60.2s">into</span>  <span class="w b6" style="animation-duration:27.8s;animation-delay:-5.3s">it</span> <span class="w b3" style="animation-duration:65.8s;animation-delay:-21.9s">all</span> <span class="w b5" style="animation-duration:77.8s;animation-delay:-26.5s">in</span> <span class="w b6" style="animation-duration:29.7s;animation-delay:-9.1s">it</span>
- <span class="w b5" style="animation-duration:44.2s;animation-delay:-16.6s">no</span> <span class="w b2" style="animation-duration:30.1s;animation-delay:-2.4s">relation</span> <span class="w b3" style="animation-duration:70.6s;animation-delay:-63.7s">alone</span> <span class="w b5" style="animation-duration:75.8s;animation-delay:-62.9s">i</span> <span class="w b2" style="animation-duration:74.9s;animation-delay:-23.9s">learn</span> <span class="w b6" style="animation-duration:49.2s;animation-delay:-38.5s">a</span>  <span class="w b4" style="animation-duration:28.6s;animation-delay:-19.9s">lake</span>                                        <span class="w b3" style="animation-duration:72.0s;animation-delay:-69.6s">alone</span> <span class="w b5" style="animation-duration:58.1s;animation-delay:-9.9s">i</span> <span class="w b1" style="animation-duration:26.2s;animation-delay:-17.7s">intone</span> <span class="w b3" style="animation-duration:79.9s;animation-delay:-69.3s">o</span> <span class="w b3" style="animation-duration:59.9s;animation-delay:-10.3s">alone</span> <span class="w b6" style="animation-duration:61.0s;animation-delay:-36.4s">a</span> <span class="w b4" style="animation-duration:81.6s;animation-delay:-28.0s">lake</span></pre></div>
+ <span class="w b5" style="animation-duration:44.2s;animation-delay:-16.6s">no</span> <span class="w b2" style="animation-duration:30.1s;animation-delay:-2.4s">relation</span> <span class="w b3" style="animation-duration:70.6s;animation-delay:-63.7s">alone</span> <span class="w b5" style="animation-duration:75.8s;animation-delay:-62.9s">i</span> <span class="w b2" style="animation-duration:74.9s;animation-delay:-23.9s">learn</span> <span class="w b6" style="animation-duration:49.2s;animation-delay:-38.5s">a</span>  <span class="w b4" style="animation-duration:28.6s;animation-delay:-19.9s">lake</span>                                        <span class="w b3" style="animation-duration:72.0s;animation-delay:-69.6s">alone</span> <span class="w b5" style="animation-duration:58.1s;animation-delay:-9.9s">i</span> <span class="w b1" style="animation-duration:26.2s;animation-delay:-17.7s">intone</span> <span class="w b3" style="animation-duration:79.9s;animation-delay:-69.3s">o</span> <span class="w b3" style="animation-duration:59.9s;animation-delay:-10.3s">alone</span> <span class="w b6" style="animation-duration:61.0s;animation-delay:-36.4s">a</span> <span class="w b4" style="animation-duration:81.6s;animation-delay:-28.0s">lake</span></pre>
+  <pre class="grid whole" id="whole">
+                                                                                                                        lake
+                                                                                                                    ontario lake
+                                                                         ontario a lake                       to  tell  it  not one
+                                                          letter  in  it alien to it rain into             rain  root  into root iron
+                                               into  an  inlet  an oar into an oak i kneel at it i      look  into it i lean into it i
+                                     take  no note a loon alone on a lit line a tern at a tilt in air a teal an oriole a rail an errant
+                                 itinerant onlooker a nekton in it a tannin in it a latent iron in it no otter in a rotten net an antler
+                              in  a torrent a laker at noon a tanker at nine a tiller a keel a knot in a net toronto on it trenton on it
+                           an  ontarian at it no one in it to title it no one to tell it no one at all it retain no letter it tolerate no
+                        error  it  take  no  note  attention  intention  iteration  alteration  narration notation lineation orientation
+                     alienation  alliteration  reiteration  toleration  relation  oration ration relation elation one letter later one
+                  letter  later nitrate rain alkaline air alien root aeolian rain not one alien letter a tarn in a lake a rill into a
+               lake  a  lake  a  littoral take an eternal literal tale in a lateral atonal lake a loon a rational rake an irrational
+             ration  i talk to it it talk to no one i learn no letter i akin to it it not akin to i i take one letter to it i take
+          one  letter or i take it all it eat no oar it eat no iron it eat all it eat an aeon a taker a teller a tiller a toiler
+        a  loner  a laker o lake o little inlet o iron o oak o alkaline o aeolian in air in rain in iron in it in it in it an
+     era later an aeon later an ontario later nearer nearer a terrain no one enter no one alter i alter no letter it alter
+   all a rattle a nettle at an inlet a talon on a tern a lilt in a tone letter to letter root to root rain to rain one
+ to one no litter in it no error in it all   eaten  all  not  eaten  i  kneel  at  it  i  look  into  it all in it
+ no relation alone i learn a  lake                                        alone i intone o alone a lake</pre>
+</div>
 <button class="sig" id="sig" aria-haspopup="dialog">l a k e   o n t a r i o</button>
 
 <div class="statement" id="statement" role="dialog" aria-modal="true" aria-label="Artist's statement">
@@ -112,6 +150,8 @@
   </div>
   <button class="shut" id="shut">c l o s e</button>
 </div>
+
+<button class="all" id="all" aria-pressed="false">a l l   i n   i t</button>
 <script>
   const sheet = document.getElementById("statement");
   const sig   = document.getElementById("sig");
@@ -136,6 +176,19 @@
   sheet.addEventListener("click", e => { if (e.target === sheet) closeStatement(); });
   addEventListener("keydown", e => { if (e.key === "Escape") closeStatement(); });
 
+  // the whole poem at once, which the breathing lake never reaches on its own
+  const allBtn = document.getElementById("all");
+  let entireTimer = null;
+  allBtn.addEventListener("click", () => {
+    const on = document.body.classList.toggle("entire");
+    allBtn.setAttribute("aria-pressed", on);
+    clearTimeout(entireTimer);
+    if (on) entireTimer = setTimeout(() => {
+      document.body.classList.remove("entire");
+      allBtn.setAttribute("aria-pressed", "false");
+    }, 90000);
+  });
+
   // the pointer is invisible until someone moves it, then hides again
   let still = null;
   addEventListener("pointermove", () => {
@@ -145,13 +198,17 @@
   });
 
   function fit(){
-    const pre = document.getElementById("grid"), field = pre.parentElement;
-    pre.style.transform = "none";
-    const w = pre.scrollWidth;
+    const field = document.querySelector(".field");
+    const grids = [...document.querySelectorAll(".grid")];
+    // one measurement, one scale, applied to both copies, so the breathing
+    // poem and the whole poem occupy exactly the same ground
+    grids.forEach(g => g.style.transform = "none");
+    const ref = document.querySelector(".whole");
+    const w = ref.scrollWidth;
     if (!w) return;
     const k = field.clientWidth / w;
-    pre.style.transform = "scale(" + k + ")";
-    field.style.height = (pre.scrollHeight * k) + "px";
+    grids.forEach(g => g.style.transform = "scale(" + k + ")");
+    field.style.height = (ref.scrollHeight * k) + "px";
   }
   addEventListener("resize", fit);
   addEventListener("load", fit);
